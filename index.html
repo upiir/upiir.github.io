@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            font-size: 18px;
-        }
-        .container {
-            padding: 15px;
-        }
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .info-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Time</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: "Chakra Petch", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #clock {
+      font-size: 20vw;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Device Status</div>
-        <div class="info-box">Temperature: 22.5°C</div>
-        <div class="info-box">Humidity: 45%</div>
-        <div class="info-box">Battery: 87%</div>
-    </div>
+  <div id="clock">--:--</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}`;
+    }
+
+    updateClock(); // Show immediately
+    setInterval(updateClock, 1000); // Update every second
+  </script>
 </body>
 </html>
